@@ -29,5 +29,14 @@ stage ('code test') {
 			}
 		}
 	}
+	stage ('deploy to tomcat") {	   
+	   
+	   steps {
+  sshagent (['18.195.35.105']) {
+    sh 'scp -o StrictHostKeyChecking=no **/*.war ec2-user@18.195.35.105:/var/lib/tomcat/webapps'
+  }
+}
+}
+
 }
 }
