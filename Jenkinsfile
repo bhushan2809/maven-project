@@ -20,5 +20,14 @@ stage ('code test') {
        }
    }
  }
+	stage ('code install') {
+		
+		steps {
+		withMaven(maven: 'localmaven')
+			{
+				sh 'mvn install'
+			}
+		}
+	}
 }
 }
