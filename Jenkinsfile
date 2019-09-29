@@ -10,7 +10,7 @@ stages
 {
 	
 	
-stage "code test" {
+stage ('code test') {
 	
 	
 	steps {
