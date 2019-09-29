@@ -29,7 +29,7 @@ stage ('code test') {
 			}
 		}
 	}
-	stage ('deploy to tomcat") {	   
+	stage ('deploy to tomcat') {	   
 	   
 	   steps {
   sshagent (['18.195.35.105']) {
