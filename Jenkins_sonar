@@ -32,8 +32,8 @@ stage ('code install') {
 {
 steps {
 
-withSobarQubeEnv('sonar') {
-withMaven(maven : 'MyMaven') {
+withSonarQubeEnv('sonar') {
+withMaven(maven : 'localmaven') {
 sh 'mvn clean install sonar:sonar}
 }
 }
