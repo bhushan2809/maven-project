@@ -1,0 +1,41 @@
+pipeline {
+  agent any
+	
+stages	
+  {  
+	  stage "scm checkout" {
+        git 'https://github.com/bhushan2809/maven-project.git'
+  }
+}	
+{
+	
+stage ('code test') {
+	
+	steps {
+        withMaven(maven: 'localmaven')
+	{
+       sh 'mvn test'
+       }
+   }
+ }
+
+stage ('code install') {
+		
+		steps {
+		withMaven(maven: 'localmaven')
+			{
+				sh 'mvn install'
+			}
+		}
+	}
+	stage ('build and SonarQubeinstall stage')
+{
+steps {
+
+withSobarQubeEnv('sonar') {
+withMaven(maven : 'MyMaven') {
+sh 'mvn clean install sonar:sonar}
+}
+}
+}
+}
