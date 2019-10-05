@@ -34,7 +34,7 @@ steps {
 
 withSonarQubeEnv('sonar') {
 withMaven(maven : 'localmaven') {
-sh 'mvn clean install sonar:sonar}
+sh 'mvn clean install sonar:sonar'}
 }
 }
 }
